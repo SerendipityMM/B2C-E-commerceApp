@@ -12,5 +12,5 @@ The project has two components Client(React) and server-side(Node.js/Express). C
 - [ ] Product Details
 - [ ] SignIn and Signup
 - [ ] Add to cart
-- [ ] Payment through PayPal
+- [ ] Payment method
 - [ ] Update Shipping Details
