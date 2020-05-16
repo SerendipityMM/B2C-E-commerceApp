@@ -1,11 +1,11 @@
 // importing express 
 const express = require('express');
-const router = express.Router()
+const router = express.Router();
 
-const { testMe } = require('../controllers/user');
+const { signup } = require('../controllers/user');
  
 // creating a method
-router.get("/", testMe);
+router.post("/signup", signup);
  
 
 module.exports = router;

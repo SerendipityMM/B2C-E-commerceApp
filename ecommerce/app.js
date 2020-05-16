@@ -1,6 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+//saving data in the coockie
+const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/user');
+const expressValidator = require('express-validator');
 require('dotenv').config()
 
 
@@ -15,6 +20,14 @@ mongoose.connect(process.env.DATABASE, {
     useUnifiedTopology: true 
 })
 .then(() => console.log("Database Connected!"));
+
+//middlewares
+app.use(morgan("dev"));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(expressValidator());
+
+
 
 //routes and prefix api
 app.use("/api", userRoutes);
