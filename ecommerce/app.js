@@ -4,11 +4,11 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 //saving data in the coockie
 const cookieParser = require('cookie-parser');
-const userRoutes = require('./routes/user');
 const expressValidator = require('express-validator');
-require('dotenv').config()
+require('dotenv').config();
 
 
+const userRoutes = require('./routes/user');
 
 // app const
 const app = express();
@@ -34,8 +34,8 @@ app.use("/api", userRoutes);
 
 
 // defining the port
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 9090
 
-app.listen(port, () => {
-    console.log('Server is running on port ' + port );
+app.listen(9090, () => {
+    console.log('Server is running on port ' + 9090 );
 })
