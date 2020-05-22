@@ -51,13 +51,13 @@ userSchema.virtual('password')
 .set(function(password) {
      this._password = password
      // to hash the password function
-     this.salt = uuidv1()
+     this.salt = uuidv1();
      this.hashed_password = this.encryptPassword(password)
 })
 
 .get(function() {
-    return this._password
-})
+    return this._password;
+});
 
 // encryptpassword function that takes password 
 userSchema.methods = {
@@ -68,9 +68,10 @@ userSchema.methods = {
         if(!password) return '';
         try {
             //hashing the password
-            return crypto.createHmac('sha1', this.salt)
-                         .update(password)
-                         .digest('hex')
+            return crypto
+            .createHmac('sha1', this.salt)
+            .update(password)
+            .digest('hex');
         } catch (err) {
             return '';
         }
