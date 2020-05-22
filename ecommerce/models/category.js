@@ -11,13 +11,9 @@ const categorySchema = new mongoose.Schema (
         required: true,
         maxlength: 32
      }
-
-
    }, 
    {timestamps:true}
 );
-
-
 
 
 // export based on userschema

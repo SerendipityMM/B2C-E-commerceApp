@@ -3,8 +3,6 @@ const {ObjectId} = mongoose.Schema;
 
 
 
-
-
 //Schema
 const productSchema = new mongoose.Schema ({
 

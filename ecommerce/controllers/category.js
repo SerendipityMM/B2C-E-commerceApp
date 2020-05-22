@@ -3,7 +3,7 @@ const { errorHandler }  = require('../errhelp/dbErrorHandler');
 
 
 
-exports.create = (req,res) => {
+exports.create = (req, res) => {
        const category = new Category(req.body)
        category.save((err, data) => {
            if(err)  {
@@ -11,7 +11,7 @@ exports.create = (req,res) => {
                       error: errorHandler(err)
                });
            }
-           res.json({data});
+           res.json({ data });
        });
 };
 
