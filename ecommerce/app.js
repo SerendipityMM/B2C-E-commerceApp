@@ -10,6 +10,7 @@ require('dotenv').config();
 // import routes
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+const categoryRoutes = require('./routes/category');
 
 // app const
 const app = express();
@@ -33,11 +34,12 @@ app.use(expressValidator());
 //routes and prefix api
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
+app.use("/api", categoryRoutes);
 
 
 
 // defining the port
-const port = process.env.PORT || 9090
+const port = process.env.PORT || 9090;
 
 app.listen(9090, () => {
     console.log('Server is running on port ' + 9090 );
