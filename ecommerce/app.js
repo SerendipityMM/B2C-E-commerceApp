@@ -8,7 +8,7 @@ const expressValidator = require('express-validator');
 require('dotenv').config();
 
 
-const userRoutes = require('./routes/user');
+const userRoutes = require('./routes/auth');
 
 // app const
 const app = express();

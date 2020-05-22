@@ -1,5 +1,5 @@
 // export method for 'routes'
-const User = require('../modules/user');
+const User = require('../models/user');
 const jwt = require('jsonwebtoken'); // generate signed token
 const expressJwt = require('express-jwt'); //authorization check
 const { errorHandler }  = require('../errhelp/dbErrorHandler');
@@ -57,3 +57,8 @@ exports.signout = (req, res) => {
        res.clearCookie('t');
        res.json({ message: 'Signout success' });
 };
+
+exports.requireSignin = expressJwt ({
+        secret: process.env.JWT_SECRET,
+        userProperty:"auth"
+});
