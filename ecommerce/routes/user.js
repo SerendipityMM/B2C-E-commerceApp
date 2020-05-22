@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 
-const {  requireSignin, isAuth, isAdmin } = require('../controllers/auth');
+const {     requireSignin, isAuth, isAdmin } = require('../controllers/auth');
 
 
 
