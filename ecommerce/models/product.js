@@ -3,7 +3,7 @@ const {ObjectId} = mongoose.Schema;
 
 
 
-//Schema
+// Product Schema
 const productSchema = new mongoose.Schema ({
 
     name: {
@@ -40,7 +40,7 @@ const productSchema = new mongoose.Schema ({
        type: Boolean
     },
 
-}, {timestamps:true}
+}, {timestamps: true}
 );
 
 

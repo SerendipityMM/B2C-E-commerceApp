@@ -18,7 +18,7 @@ exports.create = (req, res) => {
         let  product = new Product(fields);
        // create a product and upload a photo
         if(files.photo) {
-           product.photo.data = fs.readFileSync(file.photo.path);
+           product.photo.data = fs.readFileSync(files.photo.path);
            product.photo.contentType = files.photo.type;
         }
 
@@ -28,7 +28,7 @@ exports.create = (req, res) => {
                 error: errorHandler(err)
             });
         }
-        res.json(result)
+        res.json(result);
     });
   });
 };

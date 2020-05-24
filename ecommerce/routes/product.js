@@ -8,9 +8,9 @@ const { userById } = require('../controllers/user');
 
 
 router.post(
-    "/product/category/create/:userId", 
-    requireSignin,
-     isAuth, 
+    "/product/create/:userId", 
+     requireSignin,
+     isAdmin, 
      isAdmin, 
      create
 );
