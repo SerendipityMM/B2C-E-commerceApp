@@ -130,6 +130,18 @@ exports.update = (req, res) => {
 
 
 // arrive and sell products for user
+//sort out
+/**
+ * sell / arrival
+ * by sell = /products?sortBy=sold&order=desc&limit=4
+ * by arrival = /products?sortBy=createdAt&order=desc&limit=4
+ * if no params are sent, then all products are returned
+ */
+
+
+
+
+
 
 exports.list = (req, res) => {
     let order = req.query.order ? req.query.order : 'asc';
@@ -151,3 +163,31 @@ exports.list = (req, res) => {
         });
 };
 
+//similar products search 
+exports.listRelated = (req, res) => {
+    let limit = req.query.limit ? parseInt(req.query.limit) : 6;
+
+    Product.find({ _id: { $ne: req.product }, category: req.product.category })
+        .limit(limit)
+        .populate('category', '_id name')
+        .exec((err, products) => {
+            if (err) {
+                return res.status(400).json({
+                    error: 'Products not found'
+                });
+            }
+            res.json(products);
+        });
+};
+
+
+exports.listCategories = (req, res) => {
+    Product.distinct('category', {}, (err, categories) => {
+        if (err) {
+            return res.status(400).json({
+                error: 'Categories not found'
+            });
+        }
+        res.json(categories);
+    });
+};
